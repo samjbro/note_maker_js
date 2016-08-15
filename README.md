@@ -1,1 +1,1 @@
-# note_maker_js
+# note-app
