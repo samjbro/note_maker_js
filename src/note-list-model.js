@@ -1,4 +1,4 @@
-var Note = require("../src/note-model").Note;
+var Note = require("./src/note-model.js").Note;
 
 (function(exports) {
 
