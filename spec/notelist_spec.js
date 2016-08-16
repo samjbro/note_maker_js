@@ -9,10 +9,20 @@ function listContainsEmptyArray() {
 
 function arrayContainsNoteObjects() {
   var notelist = new NoteList;
-  var note = new Note("I am a note");
-  notelist.saveNote(note);
+  notelist.saveNote("I am a note");
+  var note = notelist.notes[0];
   isTrue(notelist.notes.includes(note));
+}
+
+function returnsNotesFromList() {
+  var notelist = new NoteList;
+  var note1 = new Note;
+  var note2 = new Note;
+  notelist.notes = [note1, note2];
+  isTrue(notelist.getNotes() == notelist.notes);
+
 }
 
 listContainsEmptyArray();
 arrayContainsNoteObjects();
+returnsNotesFromList();
