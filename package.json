@@ -1,18 +1,26 @@
 {
-  "name": "module-pattern-and-reflective-learning-workshop",
+  "name": "note_maker_js",
   "version": "1.0.0",
-  "description": "",
+  "description": "Note making app",
   "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node_modules/http-server/bin/http-server .",
-    "test": "mocha test --watch"
+    "start": "node_modules/http-server/bin/http-server"
   },
-  "devDependencies": {
-    "http-server": "^0.9.0",
-    "chai": "^3.5.0",
-    "mocha": "^2.5.3"
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/samjbro/note_maker_js.git"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/samjbro/note_maker_js/issues"
+  },
+  "homepage": "https://github.com/samjbro/note_maker_js#readme",
+  "dependencies": {
+    "http-server": "^0.9.0"
+  }
 }
