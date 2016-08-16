@@ -5,8 +5,11 @@
 
   ListView.prototype.display = function() {
     var notesArray = this.list.readList();
-    var htmlOutput = notesArray[0].readNote();
-    return "<ul><li>" + htmlOutput + "</li></ul>"
+    var htmlOutput = [];
+    for(var note = 0; note < notesArray.length; note++){
+      htmlOutput.push("<li>" + notesArray[note].readNote() + "</li>");
+    }
+    return "<ul>" + htmlOutput.join('') + "</ul>";
   };
 
   exports.ListView = ListView;
