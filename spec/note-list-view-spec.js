@@ -1,11 +1,14 @@
-var isTrue = require("../src/asserts.js").isTrue;
-var NoteList = require("../src/note-list-model.js").NoteList;
-var NoteListView = require("../src/note-list-view.js").NoteListView;
+describe("NoteListView", function(){
+  it("shows only first 20 characters", function(){
+    var list = new NoteList();
+    var twenty = "I really love ruby and I miss it!";
+    list.saveNote(twenty);
+    var view = new NoteListView(list);
+    var result = "<ul><li>I really love ruby a</li></ul>";
+    isTrue(view.returnList() === result);
+    
+  });
+});
 
-function returnsHTMLString() {
-  notelist = new NoteList;
-  notelist.saveNote("hello");
-  notelist.saveNote("goodbye");
-  view = new NoteListView(notelist);
-  isTrue(view.returnList() === "<ul><li><div>hello</div></li><li><div>goodbye</div></li></ul>");
-}
+
+// "<div>I really love ruby a</div>";
