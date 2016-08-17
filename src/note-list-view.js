@@ -1,4 +1,4 @@
-var NoteList = require("../src/note-list-model").NoteList;
+// var NoteList = require("../src/note-list-model").NoteList;
 
 (function(exports){
   function NoteListView(noteList) {
@@ -6,9 +6,12 @@ var NoteList = require("../src/note-list-model").NoteList;
   }
 
   NoteListView.prototype.returnList = function(){
-    list.notes.forEach(function(note){
-      return "<li><div>"+ note.text + "</li></div>";
+    var listhtml = this.noteListModel.getNotes();
+    var mappedlist = listhtml.map(function(note){
+      return "<li>" + note.getText() + "</li>";
     });
+
+    return "<ul>" + mappedlist.join("") + "</ul>";
   };
 
   exports.NoteListView = NoteListView;
