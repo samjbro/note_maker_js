@@ -1,18 +1,8 @@
-var assert = require("./assert");
-var NoteList = require("../models/note-list-model")
-
 var notelist = new NoteList();
+notelist.store('note')
 
 function storesListOfNotes() {
-  notelist.store('note')
-  assert.isTrue(notelist.listArr === notelist.list() )
+  assert.isTrue(notelist._listArr[0].text() === 'note')
 };
-
-function displayListOfNotes() {
-  assert.isTrue(notelist.listArr === notelist.list() )
-};
-
 
 storesListOfNotes();
-
-displayListOfNotes();

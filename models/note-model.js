@@ -8,5 +8,5 @@
     return this.save_note;
   };
 
-  module.exports = Note;
+  exports.Note = Note;
 })(this);

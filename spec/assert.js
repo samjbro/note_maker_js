@@ -1,9 +1,11 @@
 (function(exports) {
 
-function isTrue(assertionToCheck) {
-  if (!assertionToCheck) {
-    throw new Error("Assertion failed: " + assertionToCheck + "is not truthy");
+  function isTrue(assertionToCheck) {
+    if (!assertionToCheck) {
+      throw new Error("Assertion failed: " + assertionToCheck + "is not truthy");
+    } else {
+      return console.log("Passed");
+    }
   };
-};
-  exports.isTrue = isTrue;
+  exports.assert = { isTrue: isTrue }
 })(this);
