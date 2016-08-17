@@ -13,6 +13,7 @@
       return this._listArr;
     }
 
+
     exports.NoteList = NoteList;
 
 })(this);
