@@ -14,12 +14,3 @@ var NoteList = require("../src/note-list-model").NoteList;
   exports.NoteListView = NoteListView;
 
 })(this);
-
-
-//
-// // Has a method that, when called, returns a string of HTML that represents the note list model.
-// //  For example:
-// <ul>
-// <li><div>Favourite food: pesto</div></li>
-// <li><div>Favourite drink: seltzer</div></li>
-// </ul>.
