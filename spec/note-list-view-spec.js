@@ -9,9 +9,8 @@ describe("NoteListView", function(){
 
   });
 
+  it("")
+
 
 
 });
-
-
-// "<div>I really love ruby a</div>";
