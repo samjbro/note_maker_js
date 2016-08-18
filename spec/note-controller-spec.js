@@ -10,14 +10,19 @@ describe("NoteController", function(){
     var list = new NoteList();
     list.saveNote("zee");
     var view = new NoteListView(list);
-    var app = document.createElement("div", {id: "app"});
+    // var app = document.createElement("div", {id: "app"});
+    var appElement = {id: "app"}
     document.getElementById = function(){
-      return app;
+      return appElement;
     };
     var controller = new NoteController(view);
     controller.insert();
     var htmlOutput = view.returnList();
-    var appElement = document.getElementById("app");
+    // var appElement = document.getElementById("app");
+    // console.log(htmlOutput);
+    // console.log(appElement.innerHTML);
+    // appElement.innerHTML = "hello";
+    console.log(appElement);
     isTrue(htmlOutput === appElement.innerHTML);
     document.getElementbyId = document.__proto__.getElementById;
   });
