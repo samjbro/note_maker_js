@@ -5,7 +5,8 @@
     }
 
     NoteList.prototype.store = function (message) {
-      var note = new Note(message);
+      var noteID = (this._listArr.length)
+      var note = new Note(noteID, message);
       this._listArr.push(note);
     }
 

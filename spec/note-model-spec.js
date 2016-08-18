@@ -1,7 +1,7 @@
-
-function noteTakesTextUponInstatiation() {
-  var note = new Note("Hello");
-  assert.isTrue(note.text() === "Hello");
-};
+var note1 = new Note(1, "Hello");
 
 noteTakesTextUponInstatiation();
+
+function noteTakesTextUponInstatiation() {
+  assert.isTrue(note1.text() === "Hello");
+};
