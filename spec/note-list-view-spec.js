@@ -9,7 +9,6 @@ describe("NoteListView", function(){
 
   });
 
-  it("")
 
 
 

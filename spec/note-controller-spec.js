@@ -17,7 +17,6 @@ describe("NoteController", function(){
     var controller = new NoteController(view);
     controller.insert();
     var htmlOutput = view.returnList();
-    console.log(appElement);
     isTrue(htmlOutput === appElement.innerHTML);
     document.getElementById = document.__proto__.getElementById;
   });
@@ -26,11 +25,18 @@ describe("NoteController", function(){
     var list = new NoteList();
     list.saveNote("zee");
     var view = new NoteListView(list);
+    var controller = new NoteController(view);
+    console.log('controller.showNote: ', controller.showNote)
+
     var appElement = {id: "app"};
     document.getElementById = function(){
       return appElement;
     };
-    window.location.hash = "#0";
-    isTrue(appElement.innerHTML === "<div>zee</div>");
+
+    document.onload = function(){window.location.hash = "#0"};
+    controller.showNote()
+    console.log(appElement);
+    isTrue(appElement.innerHTML === "<div>zee</div>")
+
   });
 });

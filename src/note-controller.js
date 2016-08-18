@@ -18,6 +18,7 @@
   };
 
   NoteController.prototype.showNote = function(){
+    console.log(this);
     var note = this.getNote();
     var singleNote = new SingleNoteView(note);
     var app = document.getElementById("app");
