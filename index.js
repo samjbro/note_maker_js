@@ -7,3 +7,11 @@ window.addEventListener("hashchange", showNote);
 function showNote(){
   controller.showNote();
 }
+
+
+showEvent = function(event){
+
+
+  console.log(event);
+};
+controller.listenForFormSubmit();

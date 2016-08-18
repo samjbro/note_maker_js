@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html>
   <head>
@@ -8,6 +6,10 @@
   </head>
   <body>
     <div id="app"> hello </div>
+    <form action="/notes/new" method="post">
+      <textarea id='text' ></textarea>
+      <input type="submit" value="Submit" />
+    </form>
     <script src="src/note-model.js"></script>
     <script src="src/note-list-model.js"></script>
     <script src="src/note-list-view.js"></script>
@@ -16,42 +18,3 @@
     <script src="index.js"></script>
   </body>
 </html>
-<!--
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <title>Frontend, single page app</title>
-  </head>
-
-  <body>
-    <a href="#tiger">Tiger</a> |
-    <a href="#lion">Lion</a> |
-    <a href="#cheetah">Cheetah</a> |
-    <a href="#leopard">Leopard</a>
-
-    <div id="animal"></div>
-
-    <script>
-      makeUrlChangeShowAnimalForCurrentPage();
-
-      function makeUrlChangeShowAnimalForCurrentPage() {
-        window.addEventListener("hashchange", showAnimalForCurrentPage);
-      };
-
-      function showAnimalForCurrentPage() {
-        showAnimal(getAnimalFromUrl(window.location));
-      };
-
-      function getAnimalFromUrl(location) {
-        return location.hash.split("#")[1];
-      };
-
-      function showAnimal(animal) {
-        document
-          .getElementById("animal")
-          .innerHTML = animal;
-      };
-    </script>
-  </body>
-</html> -->
