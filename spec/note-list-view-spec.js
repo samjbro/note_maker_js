@@ -4,10 +4,13 @@ describe("NoteListView", function(){
     var twenty = "I really love ruby and I miss it!";
     list.saveNote(twenty);
     var view = new NoteListView(list);
-    var result = "<ul><li>I really love ruby a</li></ul>";
+    var result = "<ul><li><a href='#1'>I really love ruby a</a></li></ul>";
     isTrue(view.returnList() === result);
-    
+
   });
+
+  
+
 });
 
 

@@ -1,5 +1,3 @@
-// var Note = require("./src/note-model.js").Note;
-
 (function(exports) {
 
   function NoteList() {
@@ -8,6 +6,7 @@
 
     NoteList.prototype.saveNote = function(text) {
       var note = new Note(text);
+      note.id = this.notes.length;
       this.notes.push(note);
     };
 

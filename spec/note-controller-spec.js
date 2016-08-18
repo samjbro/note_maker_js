@@ -11,14 +11,14 @@ describe("NoteController", function(){
     list.saveNote("zee");
     var view = new NoteListView(list);
     var app = document.createElement("div", {id: "app"});
-    document.getElementbyId = function(){
+    document.getElementById = function(){
       return app;
     };
     var controller = new NoteController(view);
     controller.insert();
     var htmlOutput = view.returnList();
-    var appElement = document.getElementbyId("app");
+    var appElement = document.getElementById("app");
     isTrue(htmlOutput === appElement.innerHTML);
-    document.getElementbyId = document.__proto__.getElementbyId;
+    document.getElementbyId = document.__proto__.getElementById;
   });
 });

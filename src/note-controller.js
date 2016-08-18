@@ -4,7 +4,8 @@
   }
 
   NoteController.prototype.insert = function(){
-    var app = document.getElementbyId("app");
+    console.log(document);
+    var app = document.getElementById("app");
     app.innerHTML = this.view.returnList();
   };
   exports.NoteController = NoteController;
