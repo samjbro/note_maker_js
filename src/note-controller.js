@@ -1,16 +1,15 @@
 (function(exports){
   function NoteController(view){
-    this.view = view;
+    this._view = view;
   }
 
   NoteController.prototype.insert = function(){
     var app = document.getElementById("app");
-    app.innerHTML = this.view.returnList();
+    app.innerHTML = this._view.returnList();
   };
-  exports.NoteController = NoteController;
 
   NoteController.prototype.getNote = function() {
-    return this.view.noteListModel.notes[this.getIdByHash()];
+    return this._view.noteListModel.notes[this.getIdByHash()];
   };
 
   NoteController.prototype.getIdByHash = function(){
@@ -18,19 +17,18 @@
   };
 
   NoteController.prototype.showNote = function(){
-    console.log(this);
     var note = this.getNote();
     var singleNote = new SingleNoteView(note);
     var app = document.getElementById("app");
     app.innerHTML = singleNote.returnHTML();
   };
 
-  NoteController.prototype.listenForFormSubmit = function(){
-    document.addEventListener('submit', function(){
-        event.preventDefault();
-        showEvent(event)
-    })
+  NoteController.prototype.submitForm = function(){
+    this._view.noteListModel.saveNote(event.target[0].value);
+    this.insert();
+    document.forms.noteForm.textGoesHere.value = "";
   };
 
+  exports.NoteController = NoteController;
 
 })(this);

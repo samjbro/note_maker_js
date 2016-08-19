@@ -1,17 +1,17 @@
-var list = new NoteList();
-list.saveNote("Favourite drink: Red bull");
-var view = new NoteListView(list);
-var controller = new NoteController(view);
-controller.insert();
-window.addEventListener("hashchange", showNote);
-function showNote(){
-  controller.showNote();
-}
+(function(exports){
+  var list = new NoteList();
+  var view = new NoteListView(list);
+  var controller = new NoteController(view);
 
+  window.addEventListener("hashchange", showNote);
+  window.addEventListener("submit", submitForm);
 
-showEvent = function(event){
+  function showNote(){
+    controller.showNote();
+  };
+  function submitForm(){
+    event.preventDefault();
+    controller.submitForm();
+  };
 
-
-  console.log(event);
-};
-controller.listenForFormSubmit();
+})(this);

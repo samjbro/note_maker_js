@@ -26,17 +26,35 @@ describe("NoteController", function(){
     list.saveNote("zee");
     var view = new NoteListView(list);
     var controller = new NoteController(view);
-    console.log('controller.showNote: ', controller.showNote)
+    // console.log('controller.showNote: ', controller.showNote)
 
     var appElement = {id: "app"};
     document.getElementById = function(){
       return appElement;
     };
 
-    document.onload = function(){window.location.hash = "#0"};
+    controller.getIdByHash = function(){return '0'}
     controller.showNote()
-    console.log(appElement);
+    // console.log(appElement);
     isTrue(appElement.innerHTML === "<div>zee</div>")
 
   });
+
+  it('allows user to enter a new note', function(){
+    var list = new NoteList();
+    var view = new NoteListView(list);
+    var controller = new NoteController(view);
+    var noteForm = {textGoesHere : {value: ""},
+                    submit: showNote};
+    var appElement = {id: 'app'};
+    function showNote(){controller.showNote();};
+
+    var string = "This is a note. I am noting this down."
+    noteForm.textGoesHere.value = string
+    noteForm.submit();
+    isTrue(appElement.innerHTML === ("<li>" + string + "</div>"));
+  });
+
+
+
 });
