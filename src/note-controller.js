@@ -1,11 +1,11 @@
 (function(exports){
-  function NoteController(appDiv, noteListView){
+  function NoteController(appDiv, formDiv, noteListView){
     this._appDiv = appDiv
+    this._formDiv = formDiv
     this._noteListView = noteListView;
 
-    var self = this;
-
     this._setupClickNoteToViewFullText();
+    this._setupSubmitFormToAddNote();
   }
 
   NoteController.prototype = {
@@ -14,6 +14,13 @@
       window.addEventListener('hashchange', function() {
         var singleNote = new SingleNoteView(self.getNote());
         self._appDiv.innerHTML = singleNote.returnHTML();
+      });
+    },
+    _setupSubmitFormToAddNote: function() {
+      var self = this;
+      window.addEventListener('submit', function() {
+        event.preventDefault();
+        self.submitForm();
       });
     }
   };
@@ -40,7 +47,7 @@
   NoteController.prototype.submitForm = function(){
     this._noteListView.noteListModel.saveNote(event.target[0].value);
     this.insert();
-    document.forms.noteForm.textGoesHere.value = "";
+    this._formDiv.textGoesHere.value = "";
   };
 
   exports.NoteController = NoteController;
